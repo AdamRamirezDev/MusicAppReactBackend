@@ -70,9 +70,9 @@ app.get("/api/album/:id/tracks", async (req, res) => {
     try {
         const response = await fetch(`https://api.deezer.com/album/${id}/tracks`, {
             headers: {
-                "User-Agent": "Mozilla/5.0 (compatible; MyMusicApp/1.0; +http://localhost)",
-                "Accept": "application/json",
-            },
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+                "Accept": "application/json"
+            }
         });
         const data = await response.json();
         console.log("Endpoint de canciones de album",data)
