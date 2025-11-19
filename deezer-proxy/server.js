@@ -127,10 +127,6 @@ app.get("/api/playlist/:id/tracks", async (req, res) => {
     }
 });
 
-app.listen(PORT, () => {
-    console.log(`proxy server running on port: ${PORT}`);
-})
-
 // Test para render
 app.get("/api/test", async (req, res) => {
   try {
@@ -141,3 +137,8 @@ app.get("/api/test", async (req, res) => {
     res.json({ error: "falló", details: err.toString() });
   }
 });
+
+app.listen(PORT, () => {
+    console.log(`proxy server running on port: ${PORT}`);
+})
+
