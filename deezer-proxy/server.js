@@ -42,6 +42,7 @@ app.get("/api/albums", async (req, res) => {
   }
 });
 
+
 //Endpoint para obtener las canciones mas escuchadas
 app.get("/api/tracks", async (req, res) => {
 
@@ -129,3 +130,14 @@ app.get("/api/playlist/:id/tracks", async (req, res) => {
 app.listen(PORT, () => {
     console.log(`proxy server running on port: ${PORT}`);
 })
+
+// Test para render
+app.get("/api/test", async (req, res) => {
+  try {
+    const response = await fetch("https://api.deezer.com/chart");
+    const data = await response.json();
+    res.json(data);
+  } catch (err) {
+    res.json({ error: "falló", details: err.toString() });
+  }
+});
