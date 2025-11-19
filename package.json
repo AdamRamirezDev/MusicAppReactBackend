@@ -1,0 +1,26 @@
+{
+  "name": "musicapp-backend",
+  "version": "1.0.0",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "axios": "^1.13.2",
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  },
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdamRamirezDev/MusicAppReactBackend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AdamRamirezDev/MusicAppReactBackend/issues"
+  },
+  "homepage": "https://github.com/AdamRamirezDev/MusicAppReactBackend#readme"
+}
