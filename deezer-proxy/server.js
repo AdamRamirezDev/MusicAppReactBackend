@@ -26,15 +26,20 @@ app.get("/api/search", async (req, res) => {
 
 // Endopoints de albumes populares
 app.get("/api/albums", async (req, res) => {
-    try{
-        const response = await fetch("https://api.deezer.com/chart/0/albums?limit=10");
-        const data = await response.json();
-        res.json({data: data.data});
-        console.log("Endpoint de albumes populares: ",data)
-    } catch(error){
-        console.error("Error al obtener albumes: ", error);
-        res.status(500).json({error: "Error al obtener albumes"});
-    }
+  try {
+    const response = await fetch("https://api.deezer.com/chart/0/albums?limit=10", {
+      headers: {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+        "Accept": "application/json"
+      }
+    });
+
+    const data = await response.json();
+    res.json({ data: data.data });
+  } catch (error) {
+    console.error("Error al obtener albumes: ", error);
+    res.status(500).json({ error: "Error al obtener albumes" });
+  }
 });
 
 //Endpoint para obtener las canciones mas escuchadas
@@ -70,9 +75,9 @@ app.get("/api/album/:id/tracks", async (req, res) => {
     try {
         const response = await fetch(`https://api.deezer.com/album/${id}/tracks`, {
             headers: {
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
-                "Accept": "application/json"
-            }
+                "User-Agent": "Mozilla/5.0 (compatible; MyMusicApp/1.0; +http://localhost)",
+                "Accept": "application/json",
+            },
         });
         const data = await response.json();
         console.log("Endpoint de canciones de album",data)
