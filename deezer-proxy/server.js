@@ -31,7 +31,7 @@ app.get("/api/albums", async (req, res) => {
         const data = await response.json();
         res.json({data: data.data});
         console.log("Endpoint de albumes populares: ",data)
-    } catch( data ){
+    } catch(error){
         console.error("Error al obtener albumes: ", error);
         res.status(500).json({error: "Error al obtener albumes"});
     }
